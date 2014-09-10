@@ -5,4 +5,18 @@
   <name>tez.lib.uris</name>
   <value>${fs.default.name}/apps/tez-0.5.0,${fs.default.name}/apps/tez-0.5.0/lib/</value>
  </property>
+ <property>
+  <name>tez.history.logging.service.class</name>
+  <value>org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService</value>
+ </property>
+
+ <property>
+  <name>tez.am.log.level</name>
+  <value>DEBUG</value>
+ </property>
+ <property>
+  <name>tez.task.log.level</name>
+  <value>DEBUG</value>
+ </property>
+
 </configuration>

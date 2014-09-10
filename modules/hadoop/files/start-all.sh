@@ -33,6 +33,8 @@ if $NEEDS_STAGING_DIR; then
     su - $YARN_USER -c "hadoop fs -chmod -R 777 /tmp/"
 fi
 
-su - $HISTORY_SERVER_USER -c "$HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh start historyserver --config $HADOOP_CONF_DIR"
+#su - $HISTORY_SERVER_USER -c "$HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh start historyserver --config $HADOOP_CONF_DIR"
+
+su - $HISTORY_SERVER_USER $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start historyserver
 
 su - vagrant -c "$HADOOP_PREFIX/bin/hadoop fs -mkdir -p /user/vagrant"

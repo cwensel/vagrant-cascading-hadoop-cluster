@@ -34,6 +34,14 @@
       <name>yarn.log-aggregation-enable</name>
       <value>true</value>
   </property>
+  <property>
+    <name>yarn.timeline-service.hostname</name>
+    <value>master.local</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.delete.debug-delay-sec</name>
+    <value>-1</value>
+  </property>
 
   <!--property>
       <name>yarn.nodemanager.resource.memory-mb</name>
