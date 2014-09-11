@@ -33,7 +33,7 @@ export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop"}
 
 export TEZ_HOME=/vagrant/tez/tez-dist/target/tez-0.5.0
 
-export HADOOP_CLASSPATH=$TEZ_HOME/*:$TEZ_HOME/lib/*:$HADOOP_CLASSPATH
+#export HADOOP_CLASSPATH=$TEZ_HOME/*:$TEZ_HOME/lib/*:$HADOOP_CLASSPATH
 
 # Extra Java CLASSPATH elements.  Automatically insert capacity-scheduler.
 for f in $HADOOP_HOME/contrib/capacity-scheduler/*.jar; do
