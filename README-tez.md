@@ -40,9 +40,9 @@ The cluster is already configured to use tez. You can cofirm that it works like 
 
 Web Interfaces:
 
-http://master.local:8088/cluster/apps
-http://master.local:50070/dfshealth.jsp
-http://master.local:8188/applicationhistory !currently not working
+* http://master.local:8088/cluster/apps
+* http://master.local:50070/dfshealth.jsp
+* http://master.local:8188/applicationhistory !currently not working
 
 stop/restart hadoop:
 
