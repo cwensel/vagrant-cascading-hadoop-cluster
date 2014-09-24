@@ -51,16 +51,21 @@ stop/restart hadoop:
 	sudo stop-dfs.sh --config $HADOOP_CONF_DIR
 	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  'sudo rm -rf /srv/hadoop' ; done
 	vagrant provision
-
+	
 Notes:
 
 This deployment is by default reliant on VMWare, VirtualBox settings are still retained, just comment out the relevant bits.
 
-VM memory settings are 1G.
+VM slave memory settings are 2G.
 
-Current vms have no password for root or vagrant (well, they are not the accepted default of 'vagrant').
+VMWare Fusion wants you to edit the /etc/hosts file and add the .local machines its hosting (sudo dscacheutil -flushcache)
+
+Current vms have no password for root.
 
 To get access to the application logs (from sftp as user vagrant), after a run
 
 	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  'sudo chmod -R 777 /tmp/hadoop-root/ /opt/hadoop-2.4.1/logs/' ; done
 
+Or to have them copied to the local shared folder
+
+	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  "sudo mkdir -p /vagrant/machines/$host/; sudo cp -Ru /tmp/hadoop-root/ /opt/hadoop-2.4.1/logs/ /vagrant/machines/$host/" ; done

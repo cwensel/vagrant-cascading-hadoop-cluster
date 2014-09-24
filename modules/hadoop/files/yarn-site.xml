@@ -12,8 +12,8 @@
   </property>
 
   <property>
-      <name>yarn.acl.enable</name>
-      <value>false</value>
+    <name>yarn.acl.enable</name>
+    <value>false</value>
   </property>
 
   <property>
@@ -23,8 +23,13 @@
   </property>
 
    <property>
-      <name>yarn.log-aggregation-enable</name>
-      <value>true</value>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.log.server.url</name>
+    <value>http://master.local:19888/jobhistory/logs/</value>
   </property>
 
   <property>

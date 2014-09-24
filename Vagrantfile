@@ -4,19 +4,15 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-#  config.vm.box = "trusty64"
-#  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
-#  config.vm.box = "vmware64"
-#  config.vm.box_url="http://files.vagrantup.com/precise64_vmware.box"
-  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
+  # https://vagrantcloud.com/phusion
+  config.vm.box = "phusion/ubuntu-14.04-amd64"
 
-
-  config.vm.provider :virtualbox do |vb|
+  config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--cpus", "1", "--memory", "512"]
   end
   
-  config.vm.provider :vmware_fusion do |v|
-    v.vmx["memsize"] = "1024"
+  config.vm.provider "vmware_fusion" do |v|
+    v.vmx["memsize"] = "2048"
     v.vmx["numvcpus"] = "1"
   end
   
@@ -54,11 +50,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.network "private_network", ip: "192.168.7.10"
     master.vm.hostname = "master.local"
 
-    config.vm.provider :virtualbox do |vb|
+    config.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--cpus", "1", "--memory", "1024"]
     end
 
-    config.vm.provider :vmware_fusion do |v|
+    config.vm.provider "vmware_fusion" do |v|
       v.vmx["memsize"] = "1024"
       v.vmx["numvcpus"] = "1"
     end
