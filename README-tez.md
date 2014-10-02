@@ -69,3 +69,12 @@ To get access to the application logs (from sftp as user vagrant), after a run
 Or to have them copied to the local shared folder
 
 	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  "sudo mkdir -p /vagrant/machines/$host/; sudo cp -Ru /tmp/hadoop-root/ /opt/hadoop-2.4.1/logs/ /vagrant/machines/$host/" ; done
+
+Or on master, call (log aggregation is currently enabled by default)
+	
+	yarn logs -applicationId <application ID>
+
+To grab the stack traces for all running TezChild vms
+
+	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  "sudo mkdir -p /vagrant/stacks/$host; sudo jps | grep TezChild | cut -d\" \" -f1 | xargs -n 1 -I @ sh -c \"sudo jstack @ > /vagrant/stacks/$host/@.txt\" " ; done
+
