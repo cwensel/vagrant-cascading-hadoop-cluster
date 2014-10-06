@@ -3,7 +3,7 @@
 <configuration>
  <property>
   <name>tez.lib.uris</name>
-  <value>${fs.default.name}/apps/tez-0.5.0,${fs.default.name}/apps/tez-0.5.0/lib/</value>
+  <value>${fs.default.name}/apps/tez-0.5.1,${fs.default.name}/apps/tez-0.5.1/lib/</value>
  </property>
  <property>
   <name>tez.history.logging.service.class</name>
