@@ -21,6 +21,7 @@ start hadoop (history server is a work in progress):
 	sudo hadoop fs -mkdir -p /apps/
 	sudo hadoop fs -chmod -R 777 /apps/
 
+	sudo mr-jobhistory-daemon.sh  --config $HADOOP_CONF_DIR start historyserver
 	sudo yarn-daemon.sh --config $HADOOP_CONF_DIR start historyserver
 
 compile and deploy tez:
@@ -46,6 +47,7 @@ Web Interfaces:
 
 stop/restart hadoop:
 
+	sudo mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR stop historyserver
 	sudo yarn-daemon.sh --config $HADOOP_CONF_DIR stop historyserver
 	sudo stop-yarn.sh --config $HADOOP_CONF_DIR
 	sudo stop-dfs.sh --config $HADOOP_CONF_DIR

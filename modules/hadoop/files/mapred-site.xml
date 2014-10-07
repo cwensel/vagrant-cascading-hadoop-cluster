@@ -24,6 +24,6 @@
   </property>
   <property>
     <name>mapreduce.framework.name</name>
-    <value>yarn-tez</value>
+    <value>yarn</value>
   </property>
 </configuration>
