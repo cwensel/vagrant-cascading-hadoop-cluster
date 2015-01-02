@@ -8,7 +8,7 @@ boot the cluster:
 
 start hadoop (history server is a work in progress):
 
-    vagrant ssh master
+  vagrant ssh master
 	sudo prepare-cluster.sh
 
 	sudo start-dfs.sh --config $HADOOP_CONF_DIR
@@ -53,7 +53,7 @@ stop/restart hadoop:
 	sudo stop-dfs.sh --config $HADOOP_CONF_DIR
 	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  'sudo rm -rf /srv/hadoop' ; done
 	vagrant provision
-	
+
 Notes:
 
 This deployment is by default reliant on VMWare, VirtualBox settings are still retained, just comment out the relevant bits.
@@ -73,10 +73,9 @@ Or to have them copied to the local shared folder
 	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  "sudo mkdir -p /vagrant/machines/$host/; sudo cp -Ru /tmp/hadoop-root/ /opt/hadoop-2.4.1/logs/ /vagrant/machines/$host/" ; done
 
 Or on master, call (log aggregation is currently enabled by default)
-	
+
 	yarn logs -applicationId <application ID>
 
 To grab the stack traces for all running TezChild vms
 
 	for host in master hadoop1 hadoop2 hadoop3; do vagrant ssh $host --command  "sudo mkdir -p /vagrant/stacks/$host; sudo jps | grep TezChild | cut -d\" \" -f1 | xargs -n 1 -I @ sh -c \"sudo jstack @ > /vagrant/stacks/$host/@.txt\" " ; done
-
