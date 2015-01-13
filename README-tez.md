@@ -28,6 +28,8 @@ compile and deploy tez:
 
     tez deploy
 
+    export HADOOP_CLASSPATH=/vagrant/tez/tez-dist/target/tez-0.5.3/*:/vagrant/tez/tez-dist/target/tez-0.5.3/lib/*:$HADOOP_CLASSPATH
+
 `tez` is a script in `/opt/tools/bin` which will checkout tez 0.5.0 from git into `/vagrant/tez`, compile it with maven
 (installed in `/opt/tools/apache-maven-3.2.3/bin/mvn`) and copy it onto HDFS in `/apps/tez-0.5.0`. Note that `/vagrant`
 is the checkout directory of the cluster, so you can also compile tez on the host machine and simply run `tez upload` on

@@ -18,13 +18,15 @@ then
     git clone https://github.com/apache/tez.git
 fi
 
+tez_version=0.5.2
+
 cd tez
 
 if [ $1 == "build" -o $1 == "deploy" ]
 then
     git fetch origin
-    git checkout branch-0.5.1
-    git pull origin branch-0.5.1
+    git checkout branch-${tez_version}
+    git pull origin branch-${tez_version}
     mvn clean package -DskipTests -Dmaven.repo.local=/vagrant/_m2_local/
 fi
 
@@ -32,6 +34,5 @@ if [ $1 == "upload" -o $1 == "deploy" ]
 then
     hadoop fs -rm -r -f /apps
     hadoop fs -mkdir /apps
-    hadoop fs -copyFromLocal tez-dist/target/tez-0.5.1 /apps/tez-0.5.1
+    hadoop fs -copyFromLocal tez-dist/target/tez-${tez_version} /apps/tez
 fi
-

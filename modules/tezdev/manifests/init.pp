@@ -1,11 +1,11 @@
 class tezdev{
- 
+
   file { ["/opt/tools/", "/opt/tools/bin"]:
         ensure => "directory"
   }
 
   exec { "download_maven":
-    command => "/tmp/grrr maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz -O /tmp/maven.tgz",
+    command => "/tmp/grrr maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz -O /tmp/maven.tgz",
     timeout => 1800,
     path => $path,
     creates => "/tmp/maven.tgz",
